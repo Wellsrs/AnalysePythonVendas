@@ -31,7 +31,7 @@ print(df.head())
 print(df.describe())
 
 # Visualização de distribuição de uma coluna 
-sns.histplot(df['product'], bins=30)
+sns.histplot(df['product'], bins=30) #alterar para coluna que gostaria de ver (product está apenas como exemplo)
 plt.show()
 
 # Matriz de correlação
