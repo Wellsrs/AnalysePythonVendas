@@ -31,7 +31,7 @@ print(df.head())
 print(df.describe())
 
 # Visualização de distribuição de uma coluna 
-sns.histplot(df['product'], bins=30) #alterar para coluna que gostaria de ver (product está apenas como exemplo)
+sns.histplot(df['product'], bins=30)
 plt.show()
 
 # Matriz de correlação
@@ -95,5 +95,14 @@ axes[2].set_title('price_y vs price_x')
 # Ajustar layout e mostrar os gráficos
 plt.tight_layout()
 plt.show()
+
+#Altera o nome das colunas 
+
+df = df.rename(columns={"name":"Nome", "sale_id":"id_venda", "product_id":"id_produto", "product":"produto", "price_y":"preço_y", "quantity":"quantidade",
+                   "price_x":"preço_x", "created_at":"data_criação", "updated_at":"data_atualização"})
+
+#Caso o Power BI não formatasse a data deveria realizar o processo a seguir:
+#df['data_criação'] = pd.to_datetime(df['data_criação'])
+#df['data_criação_formatada'] = df['data_criação'].dt.strftime('%d-%m-%Y %H:%M')
 
 df.to_csv('dados_com_clusters.csv', index=False)
